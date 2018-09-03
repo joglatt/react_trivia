@@ -5,7 +5,8 @@ const morgan = require("morgan");
 const app = express();
 const PORT = process.env.PORT || 3001;
 const mongoose = require("mongoose");
-// const nodemailer = require('nodemailer');
+const controller = require("./utils/database/controller")
+
 
 app.use(express.static("client/build"));
 // MIDDLEWARE
@@ -18,7 +19,7 @@ app.use(
 app.use(bodyParser.json());
 
 //Adding routes for API
-// app.use(controller);
+app.use(controller);
 //Database connection
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/trivia");
 

@@ -6,9 +6,6 @@ mongoose.Promise = global.Promise;
 
 mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/trivia",
-  {
-    useMongoClient: true
-  }
 );
 
 const triviaSeed = [
@@ -33,7 +30,7 @@ const triviaSeed = [
 
 db.Trivia
   .remove({})
-  .then(() => db.Book.collection.insertMany(triviaSeed))
+  .then(() => db.Trivia.collection.insertMany(triviaSeed))
   .then(data => {
     console.log(data.insertedIds.length + " records inserted!");
     process.exit(0);
