@@ -8,7 +8,9 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      questions: []
+      questions: [],
+      currentQuestion: {},
+      usedQuetions: []
     };
   }
   componentDidMount() {
@@ -17,8 +19,10 @@ class App extends Component {
       .then(res => {
         console.log(res.data);
         this.setState({
-          questions: res.data
+          questions: res.data,
+          currentQuestion:res.data[0]
         });
+        console.log(this.state.currentQuestion);
       })
       .catch(err => console.log(err));
   }
@@ -30,7 +34,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to Trivia</h1>
         </header>
-        <Panel questions={this.state.questions}/>
+        <Panel currentQuestion={this.state.currentQuestion} />
       </div>
     );
   }

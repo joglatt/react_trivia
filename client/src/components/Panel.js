@@ -3,13 +3,14 @@ import Question from "./Question";
 import ScoreBoard from "./Scoreboard";
 import Selections from "./Selections";
 class Panel extends Component {
+  
   render() {
-    console.log(this.props.questions[0])
+    console.log(this.props.currentQuestion)
     return (
       <div>
-        <Question question={this.props.questions[0]}/>
+        <Question question={this.props.currentQuestion}/>
         <ScoreBoard />
-        <Selections />
+        <Selections question={this.props.currentQuestion} />
       </div>
     );
   }
