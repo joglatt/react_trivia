@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import Button from "@material-ui/core/Button";
 class Selections extends Component {
   render() {
-    console.log(this.props.question);
+
     return (
       <div>
-        <Button size="large" color="primary">
+        <Button onClick ={this.props.handleSelection} size="large" color="primary">
           {" "}
           {this.props.question.a1}{" "}
         </Button>
