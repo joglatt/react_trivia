@@ -3,6 +3,8 @@ import logo from "./logo.png";
 import "./App.css";
 import Panel from "./components/Panel";
 import api from "./api";
+import AppBar from '@material-ui/core/AppBar';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 class App extends Component {
   constructor() {
@@ -59,10 +61,10 @@ class App extends Component {
 
     return (
       <div className="App">
-        <header className="App-header">
+        <CssBaseline />
+        <AppBar className="appBar">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to Trivia</h1>
-        </header>
+        </AppBar>
         <Panel
           handleSelection={this.handleSelection}
           currentQuestion={currentQuestion}

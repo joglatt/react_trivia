@@ -1,19 +1,23 @@
 import React, { Component } from "react";
+import "typeface-roboto";
+import "../App.css";
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
 
 class Scoreboard extends Component {
   render() {
     const { score, time } = this.props;
     return (
-      <div>
-        <h1>
+      <Grid className="scoreBoard">
+        <Typography variant="display1" gutterBottom align="center" >
           Time:
           {time}
-        </h1>
-        <h2>
+        </Typography>
+        <Typography variant="display1" gutterBottom align="center">
           Score:
           {score}
-        </h2>
-      </div>
+        </Typography>
+      </Grid>
     );
   }
 }
