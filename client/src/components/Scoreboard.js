@@ -6,19 +6,20 @@ import Typography from "@material-ui/core/Typography";
 
 class Scoreboard extends Component {
   render() {
-    const { score, time } = this.props;
-    return (
-      <Grid className="scoreBoard">
-        <Typography variant="display1" gutterBottom align="center" >
-          Time:
-          {time}
-        </Typography>
-        <Typography variant="display1" gutterBottom align="center">
-          Score:
-          {score}
-        </Typography>
-      </Grid>
-    );
+    const { score, time,} = this.props;
+      return (
+        <Grid className="scoreBoard">
+          <Typography variant="display1" gutterBottom align="center">
+            Time:
+            {time}
+          </Typography>
+          <Typography variant="display1" gutterBottom align="center">
+            Score:
+            {score}
+          </Typography>
+        </Grid>
+      );
+  
   }
 }
 

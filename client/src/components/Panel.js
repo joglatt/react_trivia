@@ -2,22 +2,42 @@ import React, { Component } from "react";
 import Question from "./Question";
 import ScoreBoard from "./Scoreboard";
 import Selections from "./Selections";
-import Paper from '@material-ui/core/Paper';
+import Paper from "@material-ui/core/Paper";
 import "../App.css";
+import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
 
 class Panel extends Component {
   render() {
-    const { currentQuestion, score, time, handleSelection } = this.props;
-    return (
-      <Paper className="panel" align="center" >
-        <ScoreBoard score={score} time={time} />
-        <Question question={currentQuestion} />
-        <Selections
-          handleSelection={handleSelection}
-          question={currentQuestion}
-        />
-      </Paper>
-    );
+    const {
+      currentQuestion,
+      score,
+      time,
+      handleSelection,
+      started,
+      startClock
+    } = this.props;
+    if (started) {
+      return (
+        <Paper className="panel" align="center">
+          <ScoreBoard score={score} time={time} />
+          <Question question={currentQuestion} />
+          <Selections
+            handleSelection={handleSelection}
+            question={currentQuestion}
+          />
+        </Paper>
+      );
+    } else {
+      return (
+        <Paper className="panel">
+          <Button onClick={startClock}>
+            {" "}
+            <Typography variant="display1"> Start Game </Typography>
+          </Button>
+        </Paper>
+      );
+    }
   }
 }
 

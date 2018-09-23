@@ -3,8 +3,8 @@ import logo from "./logo.png";
 import "./App.css";
 import Panel from "./components/Panel";
 import api from "./api";
-import AppBar from '@material-ui/core/AppBar';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import AppBar from "@material-ui/core/AppBar";
+import CssBaseline from "@material-ui/core/CssBaseline";
 
 class App extends Component {
   constructor() {
@@ -14,21 +14,42 @@ class App extends Component {
       currentQuestion: {},
       usedQuestions: [],
       score: 0,
-      time: 10
+      clock: 10,
+      started: false
     };
+    this.startClock = this.startClock.bind(this);
   }
   componentDidMount() {
     api
       .getAll()
       .then(res => {
-        console.log(res.data);
+        // console.log(res.data);
         this.setState({
           questions: res.data,
           currentQuestion: res.data[0]
         });
-        console.log(this.state.currentQuestion);
+        // console.log(this.state.currentQuestion);
       })
       .catch(err => console.log(err));
+  }
+  startClock() {
+    console.log(this.state.clock);
+    if (this.state.started) {
+      setTimeout(function() {
+        let time = this.state.clock - 1;
+        this.setState({
+          clock: time
+        });
+      }, 1000);
+    } else {
+      setTimeout(function() {
+        let time = this.state.clock - 1;
+        this.setState({
+          started: true,
+          clock: time
+        });
+      }, 1000);
+    }
   }
 
   testUserGuess(guess, qArray, used) {
@@ -57,7 +78,7 @@ class App extends Component {
   };
 
   render() {
-    const { currentQuestion, score, time } = this.state;
+    const { currentQuestion, score, time, started } = this.state;
 
     return (
       <div className="App">
@@ -66,6 +87,8 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
         </AppBar>
         <Panel
+          startClock={this.startClock}
+          started={started}
           handleSelection={this.handleSelection}
           currentQuestion={currentQuestion}
           score={score}
