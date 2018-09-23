@@ -11,7 +11,8 @@ class App extends Component {
       questions: [],
       currentQuestion: {},
       usedQuestions: [],
-      score: 0
+      score: 0,
+      time: 10
     };
   }
   componentDidMount() {
@@ -29,18 +30,15 @@ class App extends Component {
   }
 
   testUserGuess(guess, qArray, used) {
-    console.log(guess);
-    console.log(this.state.currentQuestion.correct);
     if (guess === this.state.currentQuestion.correct) {
-      console.log("correct");
+      let score = this.state.score + 1;
       this.setState({
         questions: qArray,
         currentQuestion: this.state.questions[0],
         usedQuestions: used,
-        score: this.state.score + 1
+        score: score
       });
     } else {
-      console.log("wrong");
       this.setState({
         questions: qArray,
         currentQuestion: this.state.questions[0],
@@ -57,6 +55,8 @@ class App extends Component {
   };
 
   render() {
+    const { currentQuestion, score, time } = this.state;
+
     return (
       <div className="App">
         <header className="App-header">
@@ -65,7 +65,9 @@ class App extends Component {
         </header>
         <Panel
           handleSelection={this.handleSelection}
-          currentQuestion={this.state.currentQuestion}
+          currentQuestion={currentQuestion}
+          score={score}
+          time={time}
         />
       </div>
     );
