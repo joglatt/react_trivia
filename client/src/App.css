@@ -40,7 +40,9 @@
 }
 
 .panel {
-  width: 80%;
-  height:200px;
+  width: 60%;
   margin: 10% auto;
+}
+.question{
+  padding:1%
 }

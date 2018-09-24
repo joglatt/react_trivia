@@ -14,44 +14,42 @@ class App extends Component {
       currentQuestion: {},
       usedQuestions: [],
       score: 0,
-      clock: 10,
+      time: 10,
       started: false
     };
     this.startClock = this.startClock.bind(this);
   }
   componentDidMount() {
-    api
-      .getAll()
-      .then(res => {
-        // console.log(res.data);
-        this.setState({
-          questions: res.data,
-          currentQuestion: res.data[0]
-        });
-        // console.log(this.state.currentQuestion);
-      })
-      .catch(err => console.log(err));
-  }
-  startClock() {
-    console.log(this.state.clock);
-    if (this.state.started) {
-      setTimeout(function() {
-        let time = this.state.clock - 1;
-        this.setState({
-          clock: time
-        });
-      }, 1000);
+    if (!this.state.stated) {
+      api
+        .getAll()
+        .then(res => {
+          // console.log(res.data);
+          this.setState({
+            questions: res.data,
+            currentQuestion: res.data[0]
+          });
+          // console.log(this.state.currentQuestion);
+        })
+        .catch(err => console.log(err));
     } else {
-      setTimeout(function() {
-        let time = this.state.clock - 1;
-        this.setState({
-          started: true,
-          clock: time
-        });
-      }, 1000);
+      this.startClock();
     }
   }
+  initGame = () => {
+    this.setState({
+      started: true
+    });
+  };
 
+  startClock() {
+    console.log(this.state.time);
+    setInterval(function() {
+      this.setState({
+        time: this.state.time - 1
+      });
+    }, 1000);
+  }
   testUserGuess(guess, qArray, used) {
     if (guess === this.state.currentQuestion.correct) {
       let score = this.state.score + 1;
@@ -87,7 +85,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
         </AppBar>
         <Panel
-          startClock={this.startClock}
+          startClock={this.initGame}
           started={started}
           handleSelection={this.handleSelection}
           currentQuestion={currentQuestion}

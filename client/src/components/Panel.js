@@ -6,7 +6,7 @@ import Paper from "@material-ui/core/Paper";
 import "../App.css";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-
+import Divider from "@material-ui/core/Divider";
 class Panel extends Component {
   render() {
     const {
@@ -21,7 +21,9 @@ class Panel extends Component {
       return (
         <Paper className="panel" align="center">
           <ScoreBoard score={score} time={time} />
+          <Divider />
           <Question question={currentQuestion} />
+          <Divider />
           <Selections
             handleSelection={handleSelection}
             question={currentQuestion}
@@ -33,7 +35,7 @@ class Panel extends Component {
         <Paper className="panel">
           <Button onClick={startClock}>
             {" "}
-            <Typography variant="display1"> Start Game </Typography>
+            <Typography variant="display4"> Start Game </Typography>
           </Button>
         </Paper>
       );

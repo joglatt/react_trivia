@@ -9,11 +9,11 @@ class Scoreboard extends Component {
     const { score, time,} = this.props;
       return (
         <Grid className="scoreBoard">
-          <Typography variant="display1" gutterBottom align="center">
+          <Typography variant="display1" gutterBottom>
             Time:
             {time}
           </Typography>
-          <Typography variant="display1" gutterBottom align="center">
+          <Typography variant="display1" gutterBottom>
             Score:
             {score}
           </Typography>
