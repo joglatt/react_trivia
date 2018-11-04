@@ -27,6 +27,6 @@
     "if-env": "^1.0.4",
     "mongoose": "^5.3.9",
     "morgan": "^1.9.1",
-    "typeface-roboto": "0.0.54"
+
   }
 }
