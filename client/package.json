@@ -7,8 +7,13 @@
     "@material-ui/core": "^3.3.2",
     "axios": "^0.18.0",
     "prop-types": "^15.6.2",
+<<<<<<< HEAD
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
+=======
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+>>>>>>> e0aa44c4cd6848a2c6ef1f15f3fa16e354261745
     "react-router-dom": "^4.1.2",
     "react-scripts": "^1.1.5"
   },
