@@ -4,9 +4,9 @@ import Context from "../Context.js";
 import GameStarted from "./GameStarted.js";
 // import NotStarted from "./NotStarted.js";
 class Panel extends Component {
-  componentDidMount() {
-    this.props.getQuestions();
-  }
+  // componentDidMount() {
+  //   this.props.getQuestions();
+  // }
 
   render() {
     // const {
@@ -20,9 +20,9 @@ class Panel extends Component {
 
     // if (started) {
     return (
-      <Context.Consumer>
+      // <Context.Consumer>
         <GameStarted />
-      </Context.Consumer>
+      /* </Context.Consumer> */
     );
     // } else {
     // return <NotStarted />;

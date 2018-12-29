@@ -8,15 +8,18 @@ import ScoreBoard from "./Scoreboard.js";
 // import Selections from "./Selections.js";
 
 class GameStarted extends Component {
+  
   render() {
     return (
-      <Paper className="panel">
-        <ScoreBoard />
-        {/* <Divider />
+      <Context.Consumer>
+        <Paper className="panel">
+          <ScoreBoard />
+          {/* <Divider />
         <Question />
         <Divider />
         <Selections /> */}
-      </Paper>
+        </Paper>
+      </Context.Consumer>
     );
   }
 }
