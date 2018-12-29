@@ -6,6 +6,7 @@ import Context from "../Context.js";
 class Selections extends Component {
   render() {
     return (
+<<<<<<< HEAD
       <React.Fragment>
         <Context.Consumer>
           {context => (
@@ -62,6 +63,54 @@ class Selections extends Component {
           )}
         </Context.Consumer>
       </React.Fragment>
+=======
+      <div>
+        <Grid item xs={12}>
+          <Button
+            onClick={handleSelection}
+            size="large"
+            color="primary"
+            value={question.a1}
+          >
+            {" "}
+            {question.a1}{" "}
+          </Button>
+        </Grid>
+        <Grid item xs={12}>
+          <Button
+            onClick={handleSelection}
+            size="large"
+            color="primary"
+            value={question.a2}
+          >
+            {" "}
+            {question.a2}{" "}
+          </Button>
+        </Grid>
+        <Grid item xs={12}>
+          <Button
+            onClick={handleSelection}
+            size="large"
+            color="primary"
+            value={question.a3}
+          >
+            {" "}
+            {question.a3}{" "}
+          </Button>
+        </Grid>
+        <Grid item xs={12}>
+          <Button
+            onClick={handleSelection}
+            size="large"
+            color="primary"
+            value={question.a4}
+          >
+            {" "}
+            {question.a4}{" "}
+          </Button>
+        </Grid>
+      </div>
+>>>>>>> parent of b1a0f4d... more style and tweaks
     );
   }
 }
