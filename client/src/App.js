@@ -7,20 +7,6 @@ import AppBar from "@material-ui/core/AppBar";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Context from "./Context.js";
 
-<<<<<<< HEAD
-class Provider extends Component {
-  state = {
-    counter: 0,
-    questions: [],
-    currentQuestion: {},
-    usedQuestions: [],
-    score: 0,
-    time: 10,
-    started: false,
-    endGame: false
-  };
-  getQuestions = () => {
-=======
 class App extends Component {
   constructor() {
     super();
@@ -35,7 +21,6 @@ class App extends Component {
     this.startClock = this.startClock.bind(this);
   }
   componentDidMount() {
->>>>>>> parent of b1a0f4d... more style and tweaks
     api
       .getAll()
       .then(res => {
@@ -47,33 +32,6 @@ class App extends Component {
         // console.log(this.state.currentQuestion);
       })
       .catch(err => console.log(err));
-<<<<<<< HEAD
-  };
-  initGame = () => {
-    this.setState({
-      started: true
-    });
-    // this.startClock();
-  };
-
-  // startClock() {
-  //   console.log(this.state.time);
-  //   setInterval(
-  //     this.setState({
-  //       time: this.state.time - 1
-  //     }),
-  //     1000
-  //   );
-  // }
-
-  endGame() {
-    if (this.state.counter === 10) {
-      this.setState({
-        endGame: true
-      });
-    }
-  }
-=======
   }
   startClock() {
     console.log(this.state.clock);
@@ -95,7 +53,6 @@ class App extends Component {
     }
   }
 
->>>>>>> parent of b1a0f4d... more style and tweaks
   testUserGuess(guess, qArray, used) {
     if (guess === this.state.currentQuestion.correct) {
       this.setState({
@@ -221,24 +178,6 @@ class App extends Component {
     // } = this.state;
 
     return (
-<<<<<<< HEAD
-      <Provider>
-        <div className="App">
-          <CssBaseline />
-          <AppBar className="appBar">
-            <img src={logo} className="App-logo" alt="logo" />
-          </AppBar>
-          <Panel
-          // initGame={this.initGame}
-          // started={started}
-          // handleSelection={this.handleSelection}
-          // currentQuestion={currentQuestion}
-          // score={score}
-          // time={time}
-          />
-        </div>
-      </Provider>
-=======
       <div className="App">
         <CssBaseline />
         <AppBar className="appBar">
@@ -253,7 +192,6 @@ class App extends Component {
           time={time}
         />
       </div>
->>>>>>> parent of b1a0f4d... more style and tweaks
     );
   }
 }
